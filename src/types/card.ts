@@ -173,7 +173,7 @@ export const demoHandout: Partial<CardData> = {
   subheadline: 'New client offer',
   blurb: '<p>20% off your first cut. Scan to book.</p>',
   ctaLabel: 'Book online',
-  ctaUrl: 'https://opsette.io',
+  ctaUrl: 'https://example.com',
   fullName: 'Glow Studio',
   businessName: '',
   accentColor: '#4A6741',

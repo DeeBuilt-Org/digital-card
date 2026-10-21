@@ -116,7 +116,7 @@ const CardForm: React.FC<CardFormProps> = ({ card, onChange }) => {
                 type="url"
                 value={card.ctaUrl}
                 onChange={e => set('ctaUrl', e.target.value)}
-                placeholder="https://opsette.io"
+                placeholder="https://yourwebsite.com"
                 size="large"
               />
             </div>

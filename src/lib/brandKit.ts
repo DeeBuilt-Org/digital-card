@@ -127,7 +127,7 @@ export async function toKitJson(card: CardData, image?: string): Promise<CardPay
 /**
  * Parse a pasted blob back into a card payload — used by the reopen path.
  * Strict on the envelope (type/v/source) so a random paste is rejected; never
- * throws, returns null for anything that isn't a valid Opsette card blob. The
+ * throws, returns null for anything that isn't a valid kit card blob. The
  * interior is read leniently: reopen only needs `data.card`, normalized so a
  * blob from an older/leaner shape still restores cleanly.
  */

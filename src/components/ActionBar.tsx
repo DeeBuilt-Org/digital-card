@@ -20,7 +20,6 @@ import { toKitJson } from '@/lib/brandKit';
 import QrModal from './QrModal';
 import PrintCard from './PrintCard';
 import ReopenCardModal from './ReopenCardModal';
-import { ShareAppModal } from '@/components/opsette-share';
 
 interface ActionBarProps {
   card: CardData;
@@ -31,7 +30,6 @@ interface ActionBarProps {
 
 const ActionBar: React.FC<ActionBarProps> = ({ card, cardRef, onSave, onReopen }) => {
   const [qrOpen, setQrOpen] = useState(false);
-  const [shareAppOpen, setShareAppOpen] = useState(false);
   const [reopenOpen, setReopenOpen] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [captureContainer, setCaptureContainer] = useState<HTMLDivElement | null>(null);
@@ -163,7 +161,7 @@ const ActionBar: React.FC<ActionBarProps> = ({ card, cardRef, onSave, onReopen }
   };
 
   const downloadQrOnly = async () => {
-    const target = card.ctaUrl || 'https://opsette.io';
+    const target = card.ctaUrl || 'https://deebuilt.co';
     try {
       const color = card.qrColor || card.accentColor || '#2D3748';
       const hex = color.replace('#', '').padEnd(6, '0').slice(0, 6);
@@ -269,14 +267,7 @@ const ActionBar: React.FC<ActionBarProps> = ({ card, cardRef, onSave, onReopen }
         </Button>
       </div>
 
-      <div style={{ textAlign: 'center', marginTop: 2 }}>
-        <Button type="link" size="small" onClick={() => setShareAppOpen(true)} style={{ fontSize: 12 }}>
-          Or share the Digital Card app itself →
-        </Button>
-      </div>
-
       <QrModal card={card} open={qrOpen} onClose={() => setQrOpen(false)} />
-      <ShareAppModal open={shareAppOpen} onClose={() => setShareAppOpen(false)} />
       <ReopenCardModal open={reopenOpen} onClose={() => setReopenOpen(false)} onReopen={onReopen} />
 
       {captureContainer && createPortal(

@@ -16,7 +16,8 @@ import { fromKitJson, toKitJson } from '@/lib/brandKit';
 import { normalizeCard } from '@/lib/card-normalize';
 import { loadCardFont } from '@/lib/fonts';
 import { renderWebImage } from '@/lib/export';
-import { OpsetteHeader } from '@/components/opsette-header';
+import { AppHeader } from '@/components/AppHeader';
+import { DeeBuiltCredit } from '@/components/DeeBuiltCredit';
 import { ThemeToggleButton } from '@/components/ThemeToggleButton';
 import { EmbedSaveBar } from '@/components/EmbedSaveBar';
 import StyleBar from '@/components/StyleBar';
@@ -169,17 +170,7 @@ const Index: React.FC = () => {
         >
           Privacy
         </button>
-        <span style={{ fontSize: 12, color: token.colorTextSecondary }}>
-          By{' '}
-          <a
-            href="https://opsette.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: 'inherit', textDecoration: 'underline' }}
-          >
-            Opsette
-          </a>
-        </span>
+        <DeeBuiltCredit />
       </Space>
     </footer>
   );
@@ -189,7 +180,7 @@ const Index: React.FC = () => {
       {embedded ? (
         <EmbedSaveBar label="your card" onSave={() => void saveToBrandBoard()} saving={saving} />
       ) : (
-        <OpsetteHeader rightExtra={<ThemeToggleButton />} />
+        <AppHeader actions={<ThemeToggleButton />} />
       )}
 
       {isDesktop ? (

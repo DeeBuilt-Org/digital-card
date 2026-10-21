@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Typography, theme as antdTheme } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import AppLogo from '@/components/AppLogo';
-import { OpsetteFooterLogo } from '@/components/opsette-share';
+import { DeeBuiltCredit } from '@/components/DeeBuiltCredit';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -78,7 +78,9 @@ const About: React.FC = () => {
 
         </Typography>
 
-        <OpsetteFooterLogo />
+        <div style={{ textAlign: 'center', marginTop: 32 }}>
+          <DeeBuiltCredit />
+        </div>
       </main>
     </div>
   );

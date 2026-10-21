@@ -3,7 +3,7 @@ import QRCode from 'qrcode';
 import { CardTemplateProps, withAlpha, darken } from './shared';
 import { resolveFontStack } from '@/lib/handout-fonts';
 
-const DEFAULT_QR_TARGET = 'https://opsette.io';
+const DEFAULT_QR_TARGET = 'https://deebuilt.co';
 
 const useInlineQr = (url: string, color: string): string => {
   const [data, setData] = useState('');

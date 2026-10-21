@@ -5,9 +5,9 @@ import { IdcardOutlined, QrcodeOutlined, LinkOutlined } from '@ant-design/icons'
 import { CardData } from '@/types/card';
 import CardPreview from './CardPreview';
 import QrModal from './QrModal';
-import { OpsetteHeader } from '@/components/opsette-header';
+import { AppHeader } from '@/components/AppHeader';
+import { DeeBuiltCredit } from '@/components/DeeBuiltCredit';
 import { ThemeToggleButton } from '@/components/ThemeToggleButton';
-import { useTheme } from '@/hooks/use-theme';
 import { downloadVCard } from '@/lib/vcard';
 
 interface SharedCardViewProps {
@@ -27,7 +27,6 @@ const SharedCardView: React.FC<SharedCardViewProps> = ({ card }) => {
   const navigate = useNavigate();
   const { message } = AntApp.useApp();
   const { token } = antdTheme.useToken();
-  const { theme: appTheme } = useTheme();
 
   const copyLink = async () => {
     await navigator.clipboard.writeText(window.location.href);
@@ -48,7 +47,7 @@ const SharedCardView: React.FC<SharedCardViewProps> = ({ card }) => {
 
   return (
     <div style={{ minHeight: '100dvh', background: token.colorBgLayout }}>
-      <OpsetteHeader theme={appTheme} rightExtra={<ThemeToggleButton />} />
+      <AppHeader actions={<ThemeToggleButton />} />
 
       <main style={{ maxWidth: 480, margin: '0 auto', padding: '24px 16px', paddingBottom: 'max(2rem, env(safe-area-inset-bottom))' }}>
         <div className="animate-scale-in">
@@ -128,17 +127,7 @@ const SharedCardView: React.FC<SharedCardViewProps> = ({ card }) => {
             >
               Privacy
             </button>
-            <span style={{ fontSize: 12, color: token.colorTextSecondary }}>
-              By{' '}
-              <a
-                href="https://opsette.io"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: 'inherit', textDecoration: 'underline' }}
-              >
-                Opsette
-              </a>
-            </span>
+            <DeeBuiltCredit />
           </Space>
         </footer>
       </main>
